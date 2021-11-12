@@ -15,17 +15,18 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
+    private lateinit var backLink: TextView
+    private lateinit var emailEditText: EditText
+    private lateinit var resetBtn: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password_activity)
 
-        forgotPassword()
-    }
-
-    private fun forgotPassword() {
-        var backLink = findViewById(R.id.backBtn) as TextView
-        var emailEditText = findViewById(R.id.emailEditText) as EditText
-        var resetBtn = findViewById(R.id.resetBtn) as Button
+        backLink = findViewById(com.example.login_register_app.R.id.backBtn)
+        emailEditText =  findViewById(com.example.login_register_app.R.id.emailEditText)
+        resetBtn =  findViewById(R.id.resetBtn)
+        auth = FirebaseAuth.getInstance()
 
         resetBtn.setOnClickListener{
             if (TextUtils.isEmpty(emailEditText.text.toString())) {
@@ -50,4 +51,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
+
 }
