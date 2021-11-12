@@ -67,11 +67,11 @@ class ProfileActivity() : AppCompatActivity() {
         }
 
         addButton.setOnClickListener{
-            Toast.makeText(this@ProfileActivity,"Add Attendee",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Add Attendee",Toast.LENGTH_SHORT).show()
         }
 
         editButton.setOnClickListener{
-            Toast.makeText(this@ProfileActivity,"Edit Attendee",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Edit Attendee",Toast.LENGTH_SHORT).show()
 //            firstName.text = "Firstname: " + firstNameEditText.getText().toString()
 //            lastName.text = "Lastname: " + lastNameEditText.getText().toString()
 
@@ -93,7 +93,7 @@ class ProfileActivity() : AppCompatActivity() {
         }
 
         deleteButton.setOnClickListener{
-            Toast.makeText(this@ProfileActivity,"Delete Attendee",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Delete Attendee",Toast.LENGTH_SHORT).show()
 //            val currentUser = auth.currentUser
 //            databaseReference?.child(currentUser?.uid!!)?.removeValue()?.addOnCompleteListener{
 //                Toast.makeText(this@ProfileActivity,"Successfully Deleted Account",Toast.LENGTH_SHORT).show()

@@ -62,11 +62,11 @@ class RegistrationActivity : AppCompatActivity() {
                         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
 //                        currentUserDb?.child("firstname")?.setValue(firstName.text.toString())
 //                        currentUserDb?.child("lastname")?.setValue(lastName.text.toString())
-                        Toast.makeText(this@RegistrationActivity, "Registration successful!",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Registration successful!",Toast.LENGTH_LONG).show()
                         startActivity(Intent(this@RegistrationActivity, ProfileActivity::class.java))
                         finish()
                     }else{
-                        Toast.makeText(this@RegistrationActivity, "Registration failed, please try again!",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Registration failed, please try again!",Toast.LENGTH_LONG).show()
                     }
                 }
         }
