@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Login and Register App</string>
+
+    <!-- Log in -->
+    <string name="login">Log in</string>
+    <string name="noAccount">Do not have an account? Register here!</string>
+    <string name="buttonSubmit">Submit</string>
+    <string name="promptUserName">Enter Email</string>
+    <string name="promptPassword">Enter Password</string>
+    <!-- Register -->
+    <string name="register">Register</string>
+    <string name="hasAccount">Have an account already? Log in</string>
+    <string name="hasAccount2">Have an account already?</string>
+    <string name="firstName">Enter First Name</string>
+    <string name="lastName">Enter Last Name</string>
+    <!-- Front-->
+    <string name="frontSlogan">"See what's\nhappening in the \nworld right now."</string>
+    <string name="createAcc">Create account</string>
+    <string name="backToHomePage">Back</string>
+
+</resources>
