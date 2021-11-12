@@ -51,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
                 .addOnCompleteListener{
                     if (it.isSuccessful){
+                        Toast.makeText(this@LoginActivity, "Login successful!",
+                            Toast.LENGTH_LONG).show()
                         startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
                         finish()
                     }else{
