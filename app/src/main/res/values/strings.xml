@@ -14,7 +14,7 @@
     <string name="firstName">Enter First Name</string>
     <string name="lastName">Enter Last Name</string>
     <!-- Front-->
-    <string name="frontSlogan">"Manage and\nOrganize Events in \nthe world right now."</string>
+    <string name="frontSlogan">"Manage and\nOrganize Events in the world right now."</string>
     <string name="createAcc">Create account</string>
     <string name="backToHomePage">Back</string>
     <string name="forgotPass">forgot Password?</string>

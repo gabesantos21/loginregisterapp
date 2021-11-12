@@ -33,21 +33,11 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun register(){
         var registerButton = findViewById(R.id.registerBtn) as Button
-//        var firstName = findViewById(R.id.firstnameInput) as EditText
-//        var lastName = findViewById(R.id.lastnameInput) as EditText
         var email = findViewById(R.id.email) as EditText
         var password = findViewById(R.id.passwordInput) as EditText
         var loginLink = findViewById(R.id.hasaccountText) as TextView
 
         registerButton.setOnClickListener{
-
-//            if(TextUtils.isEmpty(firstName.text.toString())){
-//                firstName.setError("Please enter first name")
-//                return@setOnClickListener
-//            }else if(TextUtils.isEmpty(lastName.text.toString())){
-//                lastName.setError("Please enter last name")
-//                return@setOnClickListener
-//             }
             if(TextUtils.isEmpty(email.text.toString())){
                 email.setError("Please enter an email")
                 return@setOnClickListener
@@ -60,8 +50,6 @@ class RegistrationActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                         val currentUser = auth.currentUser
                         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
-//                        currentUserDb?.child("firstname")?.setValue(firstName.text.toString())
-//                        currentUserDb?.child("lastname")?.setValue(lastName.text.toString())
                         Toast.makeText(this, "Registration successful!",Toast.LENGTH_LONG).show()
                         startActivity(Intent(this@RegistrationActivity, ProfileActivity::class.java))
                         finish()
@@ -70,7 +58,6 @@ class RegistrationActivity : AppCompatActivity() {
                     }
                 }
         }
-
         loginLink.setOnClickListener{
             startActivity(Intent(this@RegistrationActivity, FrontActivity::class.java))
             finish()

@@ -20,16 +20,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
-
         val currentuser = auth.currentUser
 
         if (currentuser != null){
             startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
             finish()
         }
-
         login()
-
     }
 
     private fun login() {
