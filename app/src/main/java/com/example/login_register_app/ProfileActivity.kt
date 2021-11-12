@@ -5,27 +5,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class ProfileActivity() : AppCompatActivity() {
 
-    lateinit var auth: FirebaseAuth
-    var databaseReference : DatabaseReference? = null
-    var database : FirebaseDatabase? = null
+    private lateinit var auth: FirebaseAuth
+    private lateinit var databaseReference : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance()
-        databaseReference = database?.reference!!.child("profile")
+        databaseReference = Firebase.database.getReference("Attendees")
 
         loadProfile()
     }
@@ -67,11 +67,57 @@ class ProfileActivity() : AppCompatActivity() {
         }
 
         addButton.setOnClickListener{
-            Toast.makeText(this,"Add Attendee",Toast.LENGTH_SHORT).show()
+            if(TextUtils.isEmpty(nameEditText.text.toString()) || TextUtils.isEmpty(eventEditText.text.toString())
+                || TextUtils.isEmpty(numberEditText.text.toString())){
+                Toast.makeText(this@ProfileActivity,"Please fill out all the fields!",Toast.LENGTH_SHORT).show()
+            }else{
+                var name: String = nameEditText.text.toString()
+                var event: String = eventEditText.text.toString()
+                var number: String = numberEditText.text.toString()
+
+                val attendee: Attendee = Attendee(name, event, number)
+
+                userreference.push().setValue(attendee)
+                Toast.makeText(this@ProfileActivity,"Successfully added Attendee",Toast.LENGTH_SHORT).show()
+                nameEditText.text.clear()
+                eventEditText.text.clear()
+                numberEditText.text.clear()
+            }
+
         }
 
         editButton.setOnClickListener{
-            Toast.makeText(this,"Edit Attendee",Toast.LENGTH_SHORT).show()
+
+            if(TextUtils.isEmpty(nameEditText.text.toString()) || TextUtils.isEmpty(eventEditText.text.toString())
+                || TextUtils.isEmpty(numberEditText.text.toString())){
+                Toast.makeText(this@ProfileActivity,"Please fill out all the fields!",Toast.LENGTH_SHORT).show()
+            }else{
+                var value: String = nameEditText.text.toString()
+                var insertQuery = userreference.orderByChild("name").equalTo(value)
+
+                insertQuery.addListenerForSingleValueEvent(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        snapshot.children.forEach{
+                            var name: String = nameEditText.text.toString()
+                            var event: String =eventEditText.text.toString()
+                            var number: String =numberEditText.text.toString()
+
+                            var attendee:Attendee = Attendee(name, event, number)
+                            it.ref.setValue(attendee)
+                        }
+                        nameEditText.text.clear()
+                        eventEditText.text.clear()
+                        numberEditText.text.clear()
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
+
+                Toast.makeText(this@ProfileActivity,"Successfully edited an attendee",Toast.LENGTH_SHORT).show()
+            }
+
 //            firstName.text = "Firstname: " + firstNameEditText.getText().toString()
 //            lastName.text = "Lastname: " + lastNameEditText.getText().toString()
 
@@ -93,7 +139,29 @@ class ProfileActivity() : AppCompatActivity() {
         }
 
         deleteButton.setOnClickListener{
-            Toast.makeText(this,"Delete Attendee",Toast.LENGTH_SHORT).show()
+            if(TextUtils.isEmpty(nameEditText.text.toString())){
+                Toast.makeText(this@ProfileActivity,"Please fill out name in order to delete!",Toast.LENGTH_SHORT).show()
+            }else{
+                var value: String = nameEditText.text.toString()
+                var deleteQuery = userreference.orderByChild("name").equalTo(value)
+
+                deleteQuery.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        snapshot.children.forEach{
+                            it.ref.removeValue()
+                        }
+                        nameEditText.text.clear()
+                        eventEditText.text.clear()
+                        numberEditText.text.clear()
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
+                Toast.makeText(this@ProfileActivity,"Successfully removed an attendee",Toast.LENGTH_SHORT).show()
+            }
+
 //            val currentUser = auth.currentUser
 //            databaseReference?.child(currentUser?.uid!!)?.removeValue()?.addOnCompleteListener{
 //                Toast.makeText(this@ProfileActivity,"Successfully Deleted Account",Toast.LENGTH_SHORT).show()
