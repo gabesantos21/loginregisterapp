@@ -17,8 +17,8 @@ import com.google.firebase.ktx.Firebase
 class RegistrationActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-    var databaseReference: DatabaseReference? = null
-    var database: FirebaseDatabase? = null
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
