@@ -22,44 +22,44 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.091" />
 
-    <EditText
-        android:id="@+id/firstnameInput"
-        android:inputType="text"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:background="@drawable/custom_input"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:padding="12dp"
-        android:drawableLeft="@drawable/ic_user"
-        android:drawablePadding="12dp"
-        android:hint="@string/firstName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.085" />
+<!--    <EditText-->
+<!--        android:id="@+id/firstnameInput"-->
+<!--        android:inputType="text"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:background="@drawable/custom_input"-->
+<!--        android:paddingStart="12dp"-->
+<!--        android:paddingEnd="12dp"-->
+<!--        android:padding="12dp"-->
+<!--        android:drawableLeft="@drawable/ic_user"-->
+<!--        android:drawablePadding="12dp"-->
+<!--        android:hint="@string/firstName"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView"-->
+<!--        app:layout_constraintVertical_bias="0.085" />-->
 
-    <EditText
-        android:id="@+id/lastnameInput"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/ic_user"
-        android:drawablePadding="12dp"
-        android:hint="@string/lastName"
-        android:inputType="text"
-        android:padding="12dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnameInput"
-        app:layout_constraintVertical_bias="0.057" />
+<!--    <EditText-->
+<!--        android:id="@+id/lastnameInput"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/custom_input"-->
+<!--        android:drawableLeft="@drawable/ic_user"-->
+<!--        android:drawablePadding="12dp"-->
+<!--        android:hint="@string/lastName"-->
+<!--        android:inputType="text"-->
+<!--        android:padding="12dp"-->
+<!--        android:paddingStart="12dp"-->
+<!--        android:paddingEnd="12dp"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.505"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/firstnameInput"-->
+<!--        app:layout_constraintVertical_bias="0.057" />-->
 
     <EditText
         android:id="@+id/email"
@@ -76,15 +76,16 @@
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastnameInput"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.111" />
 
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
         android:background="@drawable/custom_input"
         android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="12dp"
@@ -99,12 +100,12 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/registerBtn"
-        android:layout_width="268dp"
-        android:layout_height="42dp"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:background="@drawable/rounded_buttons"
         android:backgroundTint="#3949AB"
         android:text="@string/buttonSubmit"

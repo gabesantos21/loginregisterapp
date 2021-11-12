@@ -60,8 +60,8 @@
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="268dp"
-        android:layout_height="42dp"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:background="@drawable/rounded_buttons"
         android:backgroundTint="#3949AB"
         android:text="@string/buttonSubmit"
@@ -73,7 +73,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.222" />
 
     <TextView
         android:id="@+id/hasNoAccount"
@@ -86,6 +86,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn"
         app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/forgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/forgotPass"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin" />
 
     <ImageView
         android:id="@+id/imageView"

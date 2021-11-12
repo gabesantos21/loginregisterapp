@@ -36,14 +36,15 @@ class LoginActivity : AppCompatActivity() {
         var loginButton = findViewById(R.id.loginBtn) as Button
         var email = findViewById(R.id.emailLogin) as EditText
         var password = findViewById(R.id.passwordInputLogin) as EditText
-        var registerLink = findViewById(R.id.hasNoAccount) as TextView
+        var backLink = findViewById(R.id.hasNoAccount) as TextView
+        var forgotPass = findViewById(R.id.forgotPass) as TextView
 
         loginButton.setOnClickListener {
             if (TextUtils.isEmpty(email.text.toString())) {
-                email.setError("Please enter first name")
+                email.setError("Please enter your Email")
                 return@setOnClickListener
             } else if (TextUtils.isEmpty(password.text.toString())) {
-                password.setError("Please enter last name")
+                password.setError("Please enter a Password")
                 return@setOnClickListener
             }
 
@@ -59,8 +60,13 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
-        registerLink.setOnClickListener{
+        backLink.setOnClickListener{
             startActivity(Intent(this@LoginActivity, FrontActivity::class.java))
+            finish()
+        }
+
+        forgotPass.setOnClickListener{
+            startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
             finish()
         }
     }

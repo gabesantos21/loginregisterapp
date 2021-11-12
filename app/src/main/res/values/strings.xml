@@ -17,5 +17,6 @@
     <string name="frontSlogan">"See what's\nhappening in the \nworld right now."</string>
     <string name="createAcc">Create account</string>
     <string name="backToHomePage">Back</string>
+    <string name="forgotPass">forgot Password?</string>
 
 </resources>
